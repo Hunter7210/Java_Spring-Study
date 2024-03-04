@@ -1,0 +1,27 @@
+Aprendendo Java Spring boot
+
+Introdução:
+	-É um Framework que utiliza a linguagem JAVAw
+	-É focado para WEB, é muito rápido e ágil
+
+
+Em resources
+ no templates são os meus arquivos HTML
+aplicattion.properties modificar 
+
+Antes de rodar é necessario configurar o pow, acrescentando as dependencias para utilizar o PostGresql
+Para isso faça:
+	-Vá no google
+	-Pesquise Maven depencias
+	-Vá em maven repository 
+	- Pesquise por Postgre
+	- E instale a primeira versão
+		PARA INSTALAR:
+			-Copie o codigo disponibilizado
+			-Vá no VSCODE no arquivo pow
+			-Encontre dependencias e cole dentro	
+
+
+	
+
+
