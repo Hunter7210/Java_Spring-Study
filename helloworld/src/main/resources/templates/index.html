@@ -1,16 +1,26 @@
+<!-- Em templates colocar somente arquivos em html, e outros recursos como img e arquivos css e js colocar na pasta static -->
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th=http://thymeleaf.org>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hi World!</title>
-    
+
 </head>
+
 <body>
     <h1>Hello World</h1>
     <span th:text="${msg}"></span>
-    
 
+    <form method="post">
+        Buscar : <input type="text" name="buscar" id="buscar">
+        <button type="submit">Enviar</button>
+    </form>
+    <span th:if="${buscar}">
+        O valor da busca é:<h2 th:text="${buscar}"></h2>
+    </span>
 </body>
 
 </html>
