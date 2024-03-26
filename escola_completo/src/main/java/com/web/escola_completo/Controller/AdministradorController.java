@@ -29,6 +29,8 @@ public class AdministradorController {
         ar.save(adm); //Registrnado o usuario no meu banco de dados
         // Aqui envia uma mensagem
         System.out.println("Cadastro realizado com sucesso");
+        } else {
+            System.out.println("Cadastro não realizado");
         }
         return "login/login-adm"; // Aqui é oque nós retornamos para o usuario neste exemplo nó iremos
                         // redireciona-lo para a pagina de login
