@@ -2,6 +2,10 @@ package crud_escola.crud_escola_app.Model;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Entity;
+
+
+@Entity
 public class Aluno implements Serializable{
 
     private String nome;
