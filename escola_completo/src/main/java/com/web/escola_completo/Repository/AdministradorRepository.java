@@ -8,4 +8,5 @@ import com.web.escola_completo.Model.Administrador;
 //Aqui serve para chamar as classes do crud
 public interface AdministradorRepository extends CrudRepository<Administrador, String>{
   
+    Administrador findByCpf(String cpf);
 }

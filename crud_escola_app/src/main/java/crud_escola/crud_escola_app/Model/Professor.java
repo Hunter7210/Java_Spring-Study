@@ -30,6 +30,4 @@ public class Professor implements Serializable{
         this.especialidade = especialidade;
     }
 
-
-    
 }

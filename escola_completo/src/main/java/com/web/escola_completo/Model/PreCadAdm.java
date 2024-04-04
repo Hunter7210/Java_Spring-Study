@@ -26,7 +26,4 @@ public class PreCadAdm  implements Serializable{
         this.nome = nome;
     }
 
-    
-
-
 }

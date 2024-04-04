@@ -16,7 +16,7 @@ import crud_escola.crud_escola_app.Repository.AdminRepository;
 @Controller //Declara a classe como contoller
 public class AdminController {
 
-    @Autowired
+/*     @Autowired
     private AdminRepository adm;
 
 
@@ -28,7 +28,7 @@ public class AdminController {
 
     @RequestMapping(value = "/verificar", method=RequestMethod.POST)
     public String verificarAdm(Admin admin){
-        adm.
-    }
+    
+    } */
     
 }
