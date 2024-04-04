@@ -24,9 +24,9 @@ public class AdministradorController {
 
     @PostMapping("cadastro-adm") // Este nome de ser o mesmo que está no post
     public String postCadastroAdm(Administrador adm) {
-        String cpfVerificacao = pcar.findByCpf(adm.getCpf()).getCpf();
+        boolean cpfVerificacao = pcar.existsById(adm.getCpf());
 
-        if (cpfVerificacao.equals(adm.getCpf())) {
+        if (cpfVerificacao) {
 
             ar.save(adm); // Registrnado o usuario no meu banco de dados
             // Aqui envia uma mensagem
@@ -53,7 +53,7 @@ public class AdministradorController {
     public String acessoAdm(@RequestParam String cpf,
             @RequestParam String senha) {
         try {
-            boolean verificaCpf = pcar.existsById(cpf);
+            boolean verificaCpf = ar.existsById(cpf);
             boolean verificaSenha = ar.findByCpf(cpf).getSenha().equals(senha);
             String url = "";
             if (verificaCpf && verificaSenha) {
@@ -66,6 +66,5 @@ public class AdministradorController {
         } catch (Exception e) {
             return "redirect:/login-adm";
         }
-
     }
 }
