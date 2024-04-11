@@ -38,6 +38,16 @@ public class IndexController {
         return "cadastro/cad-prof";
     }
 
+    @GetMapping("/cad-alun")
+    public String acessoCadAlun() {
+        return "cadastro/cad-aluno";
+    }
+
+    @GetMapping("/login-alun")
+    public String acessAlun() {
+        return "login/login-aluno";
+    }
+
     @GetMapping("/lis-prof")
     public String listarProf() {
         return "restrito/view-db";

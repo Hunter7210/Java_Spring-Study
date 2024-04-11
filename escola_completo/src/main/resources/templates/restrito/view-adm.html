@@ -1,19 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Painel de Controle</title>
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        /* Estilos para a barra lateral */
+        .sidebar {
+            width: 20%;
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+        }
+        /* Estilos para o conteúdo principal */
+        .main-content {
+            width: 80%;
+            padding: 20px;
+        }
+        .header {
+            background-color: #ecf0f1;
+            padding: 10px;
+        }
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .stats, .chart, .reports {
+            flex-basis: calc(33.333% - 20px);
+            margin: 10px;
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <h1>PAGINA INTERNA</h1>
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Usuários</a></li>
+                <li><a href="#">Configurações</a></li>
+                <li><a href="#">Relatórios</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="header">
+                <h1>Painel de Controle</h1>
+            </div>
+            <div class="content">
+                <div class="stats">
+                    <h2>Estatísticas</h2>
+                    <!-- Conteúdo das estatísticas aqui -->
+                </div>
+                <div class="chart">
+                    <h2>Gráfico</h2>
+                    <!-- Conteúdo do gráfico aqui -->
+                </div>
+                <div class="reports">
+                    <h2>Relatórios</h2>
+                    <!-- Conteúdo dos relatórios aqui -->
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <form action="logout-adm" method="post">
         <button value="Sair" name="sair">Sair</button>
-        <a href="/view-db.html"><button type="button" class="btn btn-block btn-login"><i class="fas fa-sign-in-alt"></i>Ver DB Prof</button></a>
-        <a href="/cad-prof"><button type="button" class="btn btn-block btn-login"><i class="fas fa-sign-in-alt"></i>Cadastrar Professor</button></a>
-
+        <a href="/view-db.html"><button type="button" class="btn btn-block btn-login"><i class="fas fa-sign-in-alt"></i>Ver
+                DB Prof</button></a>
+        <a href="/cad-prof"><button type="button" class="btn btn-block btn-login"><i
+                    class="fas fa-sign-in-alt"></i>Cadastrar Professor</button></a>
+        <a href="/cad-alun"><button type="button" class="btn btn-block btn-login"><i
+                    class="fas fa-sign-in-alt"></i>Cadastrar Aluno</button></a>
+    
     </form>
 </body>
 </html>
