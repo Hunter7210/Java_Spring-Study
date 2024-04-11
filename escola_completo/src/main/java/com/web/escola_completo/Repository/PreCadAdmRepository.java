@@ -1,11 +1,11 @@
 package com.web.escola_completo.Repository;
 
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.data.jpa.repository.support.CrudMethodMetadata;
+/* import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.data.jpa.repository.support.CrudMethodMetadata; */
 import org.springframework.data.repository.CrudRepository;
 
 import com.web.escola_completo.Model.PreCadAdm;
-import java.util.List;
+/* import java.util.List; */
 
 
 

@@ -2,7 +2,7 @@ package com.web.escola_completo.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+// import org.springframework.web.bind.annotation.RequestParam;
 
 //Sinaliza para o Spring que esta classe é uma controller
 @Controller
@@ -28,7 +28,6 @@ public class IndexController {
         return "cadastro/cad-adm";
     }
 
-
     @GetMapping("/login-prof")
     public String acessoLoginProf() {
         return "login/login-prof";
@@ -38,6 +37,12 @@ public class IndexController {
     public String acessoCadProf() {
         return "cadastro/cad-prof";
     }
+
+    @GetMapping("/lis-prof")
+    public String listarProf() {
+        return "restrito/view-db";
+    }
+
     
     
 }
