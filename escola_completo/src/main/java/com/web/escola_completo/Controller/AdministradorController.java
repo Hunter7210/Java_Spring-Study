@@ -2,11 +2,10 @@ package com.web.escola_completo.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
-
 import com.web.escola_completo.Model.Administrador;
 import com.web.escola_completo.Model.Aluno;
 import com.web.escola_completo.Model.Professor;
@@ -119,13 +118,18 @@ public class AdministradorController {
         // redireciona-lo para a pagina de login
     }
 
+
+
     // Metodo para listar todos os professores
-    @GetMapping("list-prof")
-    public ModelAndView listarProf() {
-        ModelAndView mv = new ModelAndView();
-        mv.addObject("professor", ar.findAll());
-        return mv;
+    @GetMapping("/view-db")
+        public String listarProfAlun(Model model) {  //Utiliza a classe Model para passar dados do controlador para a view. 
+        model.addAttribute("professores", pfr.findAll());
+        model.addAttribute("alunos", alr.findAll());
+        return "restrito/view-db.html"; // Nome da página Thymeleaf que irá listar os professores
     }
+
+
+   
 
     // Metodo para cadastrar o aluno
     @PostMapping("cadastro-alun")
@@ -147,5 +151,6 @@ public class AdministradorController {
         return url; // Aqui é oque nós retornamos para o usuario neste exemplo nós iremos
         // redireciona-lo para a pagina de login
     }
+
 
 }

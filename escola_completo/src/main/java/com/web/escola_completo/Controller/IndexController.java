@@ -47,12 +47,5 @@ public class IndexController {
     public String acessAlun() {
         return "login/login-aluno";
     }
-
-    @GetMapping("/lis-prof")
-    public String listarProf() {
-        return "restrito/view-db";
-    }
-
-    
     
 }

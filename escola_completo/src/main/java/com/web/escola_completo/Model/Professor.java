@@ -10,7 +10,8 @@ public class Professor {
     private String cpf;
     private String nome;
     private String email;
-    private String disciplina; //Pensar em criar uma tabela para armazenar todas as disciplinas e tambem todas as turmas
+    private String disciplina; //Colocar o CODIGO de cada disciplina EXEMPLO: 001; 002; // UM PROFESSOR DA UMA OU DUAS DISCIPLINA
+    private String disciplina_reserva; // UM PROFESSOR DA UMA DISCIPLINA
     private String senha;
 
 
@@ -22,6 +23,12 @@ public class Professor {
     }
     public String getEmail() {
         return email;
+    }
+    public String getDisciplina_reserva() {
+        return disciplina_reserva;
+    }
+    public void setDisciplina_reserva(String disciplina_reserva) {
+        this.disciplina_reserva = disciplina_reserva;
     }
     public void setEmail(String email) {
         this.email = email;
@@ -44,5 +51,7 @@ public class Professor {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+
 
 }
