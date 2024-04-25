@@ -1,21 +1,30 @@
 package com.web.escola_completo.Model;
 
+
 import java.io.Serializable;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Aluno implements Serializable {
+public class Aluno implements Serializable{
 
     @Id
-    private String matricula;
-    private String cpf;
     private String ra;
+    private String cpf;
+    private String matricula;
     private String nome;
     private String turma;
     private String email;
     private String senha;
+
+      //Criando uma foreight key para a turma
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "tur.cod_turma")
+    private Turma tur;
 
     public String getMatricula() {
         return matricula;

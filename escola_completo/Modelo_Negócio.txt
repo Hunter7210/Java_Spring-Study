@@ -1,0 +1,75 @@
+
+FUNCIONAMENTO DO SITE 
+
+
+-------------------------------------------------------------------------------------------------
+    CARGO   |                  FUNÇÃO                   |       ACESSO      |   CHAVE-PRIMÁRIA  |
+-------------------------------------------------------------------------------------------------
+            |OP: Cadastrar todos os outros funcionarios |                   |                   |
+ADM         |                                           |Todas as paginas   |CPF                |
+            |OS: Verificar banco de dados               |                   |                   |
+-------------------------------------------------------------------------------------------------
+            | OP: Atribuir notas aos alunos             |Todas exceto       |                   |
+Professor   |                                           |a pagina ADM       |CPF                |
+            |OS: Editar email aluno                     |                   |                   |
+-------------------------------------------------------------------------------------------------
+            |                                           |Somente index,     |                   |
+Aluno       |OP: Ver notas                              |login e ver notas  |RA                 |
+            |                                           |                   |                   |
+-------------------------------------------------------------------------------------------------
+
+
+
+Paginas do Site:
+
+
+INDEX
+    Area Aluno
+        Login Aluno
+            Ver Notas
+    Area Professor
+        Login Professor/ADM
+            Lançar notas
+            Ver alunos
+                Mudar email alunos
+        ***CASO O LOGIN SEJA DO ADM***
+            Ver alunos 
+                Mudar informações alunos
+            Ver Professores
+                Mudar informações professores
+            Cadastro
+                Cadastrar Alunos
+                Cadastrar Professor
+                Cadastrar ADM
+                Cadastrar Turma
+                Cadastrar Materias
+
+
+
+
+
+
+
+CODIGOS SQL 
+BUSCA DE NOTAS, Professor E Aluno: 
+
+SELECT notas.valor_notas Notas, notas.disc_cod_disciplina MATERIA, notas.alu_ra RA_ALUNO, disciplinas.nome, disciplinas.prof_cpf NOME_PROFESSOR FROM notas INNER JOIN disciplinas  ON disciplinas.cod_disciplina = notas.disc_cod_disciplina; 
+
+
+Verificar AS RELAÇÕES:
+
+ SELECT
+     tc.constraint_name, 
+     tc.table_name, 
+     kcu.column_name, 
+     ccu.table_name AS foreign_table_name,
+     ccu.column_name AS foreign_column_name 
+ FROM 
+     information_schema.table_constraints AS tc 
+     JOIN information_schema.key_column_usage AS kcu
+       ON tc.constraint_name = kcu.constraint_name
+     JOIN information_schema.constraint_column_usage AS ccu
+       ON ccu.constraint_name = tc.constraint_name
+ WHERE 
+     tc.constraint_type = 'FOREIGN KEY' AND 
+     tc.table_name='aluno';              

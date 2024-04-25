@@ -3,7 +3,10 @@ package com.web.escola_completo.Model;
 import java.io.Serializable;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Disciplinas implements Serializable {
@@ -15,9 +18,12 @@ public class Disciplinas implements Serializable {
     @Id
     private String codDisciplina;
     private String nome;
-    private String duracao;
 
-    //Relacionar essa tabela com sa tabelas de aluno e professor
+    //Criando uma foreight key de professor
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "prof.cpf")
+    private Professor prof;
+
 
     public String getCodDisciplina() {
         return codDisciplina;
@@ -31,16 +37,4 @@ public class Disciplinas implements Serializable {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public String getDuracao() {
-        return duracao;
-    }
-    public void setDuracao(String duracao) {
-        this.duracao = duracao;
-    }
-
-
-    
-
-
-
 }
