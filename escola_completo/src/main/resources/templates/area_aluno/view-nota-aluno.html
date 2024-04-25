@@ -67,21 +67,22 @@
                     <th>Nome Aluno</th>
                     <th>Materia</th>
                     <th>Nota</th>
-                    <th>Aprovado</th>
+                    
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="nota : ${notas}">
+                    <td th:text="${nota.id_notas}"></td>
                     <td th:text="${nota.alu_ra}"></td>
                     <td th:text="${nota.disc_cod_disciplina}"></td>
                     <td th:text="${nota.valor_notas}"></td>
-                    <td>
+                   <!--  <td>
                         <button>Editar</button>
                         <button class="btn-delete">Excluir</button>
-                    </td>
+                    </td> -->
                 </tr>
             </tbody>
-        </table>
+    </form>
     </div>
 </body>
 </html>

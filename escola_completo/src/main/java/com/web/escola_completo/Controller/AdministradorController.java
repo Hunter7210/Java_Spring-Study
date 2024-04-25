@@ -129,8 +129,6 @@ public class AdministradorController {
     }
 
 
-   
-
     // Metodo para cadastrar o aluno
     @PostMapping("cadastro-alun")
     public String cadastroAluno(Aluno alun) {
