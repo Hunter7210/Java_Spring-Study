@@ -25,7 +25,7 @@ public class IndexController {
 
     @GetMapping("/cad-adm")
     public String acessoCadAdm() {
-        return "cadastro/cad-adm";
+        return "templates/cadastro/cad-adm";
     }
 
     @GetMapping("/login-prof")

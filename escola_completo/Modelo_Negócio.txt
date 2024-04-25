@@ -23,10 +23,10 @@ Aluno       |OP: Ver notas                              |login e ver notas  |RA 
 Paginas do Site:
 
 
-INDEX
-    Area Aluno
-        Login Aluno
-            Ver Notas
+INDEX  P
+    Area Aluno 
+        Login Aluno P
+            Ver Notas P
     Area Professor
         Login Professor/ADM
             Lançar notas
@@ -72,4 +72,4 @@ Verificar AS RELAÇÕES:
        ON ccu.constraint_name = tc.constraint_name
  WHERE 
      tc.constraint_type = 'FOREIGN KEY' AND 
-     tc.table_name='aluno';              
+     tc.table_name='aluno';                  10
