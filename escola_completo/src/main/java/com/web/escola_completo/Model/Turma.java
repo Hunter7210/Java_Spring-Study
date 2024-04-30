@@ -12,7 +12,7 @@ import jakarta.persistence.ManyToOne;
 public class Turma implements Serializable{
 
     @Id
-    private String cod_turma;
+    private String codturma;
     private String nome;
     private String periodo;
 
@@ -21,12 +21,12 @@ public class Turma implements Serializable{
     @JoinColumn(name = "prof.cpf")
     private Professor prof;
 
-    public String getCod_turma() {
-        return cod_turma;
+    public String getCodturma() {
+        return codturma;
     }
 
-    public void setCod_turma(String cod_turma) {
-        this.cod_turma = cod_turma;
+    public void setCod_turma(String codturma) {
+        this.codturma = codturma;
     }
 
     public String getNome() {

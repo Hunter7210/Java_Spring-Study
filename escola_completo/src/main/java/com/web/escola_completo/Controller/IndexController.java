@@ -47,5 +47,4 @@ public class IndexController {
     public String acessAlun() {
         return "login/login-aluno";
     }
-    
 }

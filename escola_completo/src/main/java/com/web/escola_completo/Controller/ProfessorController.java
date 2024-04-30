@@ -2,6 +2,7 @@ package com.web.escola_completo.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -24,7 +25,7 @@ public class ProfessorController {
             System.out.println(verificaCpf);
             System.out.println(verificaSenha);
             if (verificaCpf && verificaSenha) {
-                url = "redirect:/login-adm";
+                url = "/area_professor/view-home-prof";
 
                 System.out.println("Login realizado com sucesso");
             } else {
@@ -35,8 +36,20 @@ public class ProfessorController {
         } catch (Exception e) {
             return "redirect:/login-adm";
         }
+    
     }
 
+
+     @GetMapping("/view-alunos-prof")
+    public String acessProfViewAlun() {
+        return "area_professor/view-todos-alunos";
+    }
+
+     @GetMapping("/view-lanca-prof")
+    public String acessProfLancNo() {
+        return "area_professor/view-lanca-nota";
+    }
+    
     
     
 

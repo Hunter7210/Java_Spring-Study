@@ -2,11 +2,8 @@ package com.web.escola_completo.Model;
 
 import java.io.Serializable;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -15,11 +12,9 @@ import jakarta.persistence.ManyToOne;
 public class Notas implements Serializable{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_notas")
-    private Long id_notas;
+    private Long idnotas;
 
-    private Double valor_notas;
+    private Double valornotas;
 
     // Criando uma foreight key para chamar o RA do aluno
     @ManyToOne(fetch = FetchType.LAZY)
@@ -32,19 +27,19 @@ public class Notas implements Serializable{
     private Disciplinas disc;
 
 
-    public Double getValor_notas() {
-        return valor_notas;
+    public Double getValornotas() {
+        return valornotas;
     }
 
-    public void setValor_notas(Double valor_notas) {
-        this.valor_notas = valor_notas;
+    public void setValor_notas(Double valornotas) {
+        this.valornotas = valornotas;
     }
 
-    public Long getId_notas() {
-        return id_notas;
+    public Long getIdnotas() {
+        return idnotas;
     }
 
-    public void setId_notas(Long id_notas) {
-        this.id_notas = id_notas;
+    public void setIdnotas(Long idnotas) {
+        this.idnotas = idnotas;
     }
 }

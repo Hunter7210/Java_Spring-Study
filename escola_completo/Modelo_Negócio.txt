@@ -27,22 +27,22 @@ INDEX  P
     Area Aluno 
         Login Aluno P
             Ver Notas P
-    Area Professor
-        Login Professor/ADM
-            Lançar notas
-            Ver alunos
-                Mudar email alunos
+    Area Professor 
+        Login Professor/ADM 
+            Lançar notas  P
+            Ver alunos P
+                Mudar email alunos 
         ***CASO O LOGIN SEJA DO ADM***
-            Ver alunos 
-                Mudar informações alunos
-            Ver Professores
+            Ver alunos P
+                Mudar informações alunos 
+            Ver Professores P
                 Mudar informações professores
-            Cadastro
-                Cadastrar Alunos
-                Cadastrar Professor
-                Cadastrar ADM
-                Cadastrar Turma
-                Cadastrar Materias
+            Cadastro P
+                Cadastrar Alunos P
+                Cadastrar Professor P
+                Cadastrar ADM P
+                Cadastrar Turma P
+                Cadastrar Materias P 
 
 
 

@@ -59,31 +59,32 @@
 </head>
 <body>
     <div class="container">
-        <form action="/view-nota-aluno" method="post">
-        <h1>Notas</h1>
+        <h1>Listar de Alunos</h1>
         <table>
             <thead>
                 <tr>
+                    <th>Matrícula</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Email</th>
                     <th>RA</th>
-                    <th>Nome Aluno</th>
-                    <th>Materia</th>
-                    <th>Nota</th>
-                    
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="nota : ${notas}">
-                    <td th:text="${nota.idnotas}"></td>
-                    <td th:text="${nota.alura}"></td>
-                    <td th:text="${nota.disccoddisciplina}"></td>
-                    <td th:text="${nota.valornotas}"></td>
-                   <!--  <td>
+                <tr th:each="aluno : ${alunos}">
+                    <td th:text="${aluno.matricula}"></td>
+                    <td th:text="${aluno.nome}"></td>
+                    <td th:text="${aluno.cpf}"></td>
+                    <td th:text="${aluno.email}"></td>
+                    <td th:text="${aluno.ra}"></td>
+                    <td>
                         <button>Editar</button>
                         <button class="btn-delete">Excluir</button>
-                    </td> -->
+                    </td>
                 </tr>
             </tbody>
-        </form>
+        </table>
     </div>
 </body>
 </html>

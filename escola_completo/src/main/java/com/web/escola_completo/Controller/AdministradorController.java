@@ -8,11 +8,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.web.escola_completo.Model.Administrador;
 import com.web.escola_completo.Model.Aluno;
+import com.web.escola_completo.Model.Disciplinas;
 import com.web.escola_completo.Model.Professor;
+import com.web.escola_completo.Model.Turma;
 import com.web.escola_completo.Repository.AdministradorRepository;
 import com.web.escola_completo.Repository.AlunoRepository;
+import com.web.escola_completo.Repository.DisciplinasRepository;
 import com.web.escola_completo.Repository.PreCadAdmRepository;
 import com.web.escola_completo.Repository.ProfessorRepository;
+import com.web.escola_completo.Repository.TurmaRepository;
 
 @Controller
 public class AdministradorController {
@@ -28,6 +32,12 @@ public class AdministradorController {
 
     @Autowired
     private AlunoRepository alr;
+
+    @Autowired
+    private DisciplinasRepository dir;
+
+    @Autowired
+    private TurmaRepository turm;
 
     boolean acessoAdm = false;
 
@@ -97,6 +107,45 @@ public class AdministradorController {
         }
     }
 
+    @GetMapping("/cad-mat")
+    public String acessoCadMat(Model model) {
+
+        String url = "";
+        try {
+            if (acessoAdm) {
+                 // Utiliza a classe Model para passar dados do controlador para a view.
+                model.addAttribute("professores", pfr.findAll());
+                
+                url = "restrito/cadastro-rest/cad-materias";
+            } else {
+                url = "login/login-adm";
+
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return url;
+    }
+
+
+    @GetMapping("/cad-turm")
+    public String acessoCadTurm() {
+        String url = "";
+        try {
+
+            if (acessoAdm) {
+
+                url = "restrito/cadastro-rest/cad-turma";
+            } else {
+                url = "login/login-adm";
+
+            }
+        } catch (Exception e) {
+            System.out.println("Você não tem acesso a esta pagina!");
+        }
+        return url;
+    }
+
     // Metodo para cadastrar o professor
     @PostMapping("cadastro-prof")
     public String cadastroProf(Professor prof) {
@@ -118,16 +167,13 @@ public class AdministradorController {
         // redireciona-lo para a pagina de login
     }
 
-
-
     // Metodo para listar todos os professores
     @GetMapping("/view-db")
-        public String listarProfAlun(Model model) {  //Utiliza a classe Model para passar dados do controlador para a view. 
+    public String listarProfAlun(Model model) { // Utiliza a classe Model para passar dados do controlador para a view.
         model.addAttribute("professores", pfr.findAll());
         model.addAttribute("alunos", alr.findAll());
         return "restrito/view-db.html"; // Nome da página Thymeleaf que irá listar os professores
     }
-
 
     // Metodo para cadastrar o aluno
     @PostMapping("cadastro-alun")
@@ -150,5 +196,44 @@ public class AdministradorController {
         // redireciona-lo para a pagina de login
     }
 
+    @PostMapping("cadastro-turma")
+    public String cadastroTurma(Turma turma) {
+        boolean turmaVerifica = turm.existsById(turma.getCodturma());
+
+        String url = "";
+
+        // Verfica se o cpf existe, se não ele realiza o aluno
+        if (!turmaVerifica) {
+            turm.save(turma); // Registrnado o usuario no meu banco de dados
+
+            url = "restrito/cadastro-rest/cad-turma.html";
+            System.out.println("Cadastro realizado com sucesso");// Aqui envia uma mensagem
+        } else {
+            System.out.println("Cadastro não realizado");
+            url = "login/login-aluno";
+        }
+        return url; // Aqui é oque nós retornamos para o usuario neste exemplo nós iremos
+        // redireciona-lo para a pagina de login
+    }
+
+    @PostMapping("cadastro-materias")
+    public String cadastroMaterias(Disciplinas disc) {
+        boolean codDiscVerif = dir.findById(disc.getCodDisciplina()) != null;
+
+        String url = "";
+
+        // Verfica se o cpf existe, se não ele realiza o aluno
+        if (!codDiscVerif) {
+            dir.save(disc); // Registrnado o usuario no meu banco de dados
+
+            url = "/cadastro-rest/cad-materias";
+            System.out.println("Cadastro realizado com sucesso");// Aqui envia uma mensagem
+        } else {
+            System.out.println("Cadastro não realizado");
+            url = "login/login-aluno";
+        }
+        return url; // Aqui é oque nós retornamos para o usuario neste exemplo nós iremos
+        // redireciona-lo para a pagina de login
+    }
 
 }

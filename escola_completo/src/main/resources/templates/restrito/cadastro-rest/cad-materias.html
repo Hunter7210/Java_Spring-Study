@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Matérias</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Cadastro de Matérias</h1>
+
+  <form id="subject-form" th:action="/cad-mat" th:object="${materia}" method="post">
+    <label for="cod_disciplina">Código da Disciplina:</label>
+    <input type="text" id="cod_disciplina" name="cod_disciplina" th:value="*{codigo}">
+
+    <label for="nome">Nome da Disciplina:</label>
+    <input type="text" id="nome" name="nome" th:value="*{nome}">
+
+    <label for="professor">Professor:</label>
+    <select id="professor" name="professor" required>
+      <option value="">Selecionar Professor</option>
+      <th:block th:each="professor : ${professores}">
+        <option th:value="${professor.cpf}" th:text="${professor.nome}"></option>
+      </th:block>
+    </select>
+  
+    <button type="submit">Salvar</button>
+  </form>
+
+</body>
+</html>

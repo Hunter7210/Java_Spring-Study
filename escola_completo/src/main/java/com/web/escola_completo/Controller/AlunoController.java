@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import com.web.escola_completo.Repository.AlunoRepository;
 import com.web.escola_completo.Repository.NotasRepository;
 
-import ch.qos.logback.core.model.Model;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +19,7 @@ public class AlunoController {
     
     @Autowired
     private NotasRepository ntr;
+    
 
     @PostMapping("acesso-alun")
     public String acessoAlun(@RequestParam String ra,
@@ -46,12 +46,14 @@ public class AlunoController {
         }
     }
 
-        // Metodo para listar todos os professores
-        @GetMapping("/view-db")
-        public String listarProfAlun(org.springframework.ui.Model model) {  //Utiliza a classe Model para passar dados do controlador para a view. 
+    // Metodo para listar todos os professores
+    @GetMapping("/view-nota-aluno")
+    public String listarProfAlun(org.springframework.ui.Model model) { // Utiliza a classe Model para passar dados do
+                                                                       // controlador para a view.
         model.addAttribute("notas", ntr.findAll());
+        System.out.println("ISTO RODOU");
         return "restrito/view-db.html"; // Nome da página Thymeleaf que irá listar os professores
-    }
-
+       
+    }   
 
 }

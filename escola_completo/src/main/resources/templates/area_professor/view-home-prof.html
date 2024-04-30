@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Control</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        .page-container {
+            display: flex;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .page {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+            transform: translateX(0);
+        }
+
+        .page.hidden {
+            display: none;
+        }
+
+        .page-control {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .page-control button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-container">
+        <div class="page" id="page-1">
+            <h2>Page 1</h2>
+            <p>This is the content of page 1.</p>
+
+
+        </div>
+        
+            <div class="page-control">
+                <form action="/view-alunos-prof" method="get"><button id="prev-btn">Ver Alunos</button></form>
+                <form action="/view-lanca-prof" method="get"><button id="next-btn">Lançar Notas</button></form>
+            </div>
+</body>
+
+</html>
