@@ -16,21 +16,27 @@ public class Disciplinas implements Serializable {
     // @JoinColumn(name = "forumId")
     // private Forum forum
     @Id
-    private String codDisciplina;
+    private String coddisciplina;
     private String nome;
 
-    //Criando uma foreight key de professor
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "prof.cpf")
+    @JoinColumn(name = "cpf") // nome da coluna na tabela Disciplinas
     private Professor prof;
+    
 
+    public Professor getProf() {
+        return prof;
+    }
+    public void setProf(Professor prof) {
+        this.prof = prof;
+    }
+    public String getCoddisciplina() {
+        return coddisciplina;
+    }
+    public void setCoddisciplina(String coddisciplina) {
+        this.coddisciplina = coddisciplina;
+    }
 
-    public String getCodDisciplina() {
-        return codDisciplina;
-    }
-    public void setCodDisciplina(String codDisciplina) {
-        this.codDisciplina = codDisciplina;
-    }
     public String getNome() {
         return nome;
     }

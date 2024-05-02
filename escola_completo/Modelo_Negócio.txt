@@ -23,14 +23,14 @@ Aluno       |OP: Ver notas                              |login e ver notas  |RA 
 Paginas do Site:
 
 
-INDEX  P
+INDEX  FF
     Area Aluno 
-        Login Aluno P
-            Ver Notas P
+        Login Aluno FF  
+            Ver Notas FA
     Area Professor 
-        Login Professor/ADM 
-            Lançar notas  P
-            Ver alunos P
+        Login Professor/ADM FF FA
+            Lançar notas  F
+            Ver alunos FF 
                 Mudar email alunos 
         ***CASO O LOGIN SEJA DO ADM***
             Ver alunos P
