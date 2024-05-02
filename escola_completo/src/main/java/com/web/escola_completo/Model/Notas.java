@@ -51,7 +51,7 @@ public class Notas implements Serializable{
         return valornotas;
     }
 
-    public void setValor_notas(Double valornotas) {
+    public void setValornotas(Double valornotas) {
         this.valornotas = valornotas;
     }
 

@@ -4,9 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
-import com.web.escola_completo.Model.Disciplinas;
 import com.web.escola_completo.Repository.AlunoRepository;
-import com.web.escola_completo.Repository.DisciplinasRepository;
 import com.web.escola_completo.Repository.NotasRepository;
 
 
@@ -23,9 +21,6 @@ public class AlunoController {
     @Autowired
     private NotasRepository ntr;
     
-    @Autowired
-    private DisciplinasRepository dir;
-    
 
     @PostMapping("acesso-alun")
     public String acessoAlun(@RequestParam String ra,
@@ -41,8 +36,7 @@ public class AlunoController {
             if (verificaCpf && verificaSenha) {
                 url = "areaAluno/view-nota-aluno";
                 model.addAttribute("notas", ntr.findAll());
-                model.addAttribute("disciplinas", dir.findAll());
-                
+
                 System.out.println("Login realizado com sucesso");
             } else {
                 url = "redirect:/login-alun";
@@ -58,7 +52,6 @@ public class AlunoController {
     @GetMapping("view-nota-aluno")
     public String listarProfAlun(org.springframework.ui.Model model) { // Utiliza a classe Model para passar dados do
                                                                        // controlador para a view.
-        
         return "areaAluno/view-nota-aluno"; // Nome da página Thymeleaf que irá listar os professores
        
     }   

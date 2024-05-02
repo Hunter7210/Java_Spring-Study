@@ -25,27 +25,33 @@
                         </div>
                         <div class="card-body">
                             <form action="/cadastro-nota" method="post">
-                                <div class="form-group">
-                                    <label for="nome">Materia:</label>
-                                    <label for="nome">NOME DELA</label>
-                                </div>
+                              <div class="form-group">
+                                <label for="coddisciplina">Id notas:</label>
+                                <input type="text" class="form-control" placeholder="id" id="idnotas" name="idnotas">
+                              </div>
+                              <div class="form-group">
+                                <label for="nome">Valor notas:</label>
+                                <input type="text" class="form-control" placeholder="Valor nota" id="valornotas" name="valornotas">
+                              </div>
+              
+                              <label for="aluno">Aluno:</label>
+                              <select id="alu" name="alu" required>
+                                <option>Selecionar o Aluno</option>
+                                <th:block th:each="aluno : ${alunos}">
+                                  <option th:value="${aluno.ra}" th:text="${aluno.ra}">RA Aluno:</option>
+                                </th:block>
+                              </select>
 
-                                <label for="aluno">Alunos:</label>
-                                <select id="aluno" name="aluno" required>
-                                    <option value="aluno">Selecionar aluno</option>
-                                    <th:block th:each="aluno : ${alunos}">
-                                        <option th:value="${aluno.cpf}" th:text="${aluno.nome}">Nome do
-                                            aluno</option>
-                                    </th:block>
-                                </select>
+                              <label for="cpf">Disciplina:</label>
+                              <th:block th:each="disciplina : ${disciplinas}">
+                                <span th:value="${disciplina.cpf}" th:text="${disciplina.cpf}"></span>
+                              </th:block>
 
-                                
-                                <div class="form-group">
-                                    <label for="coddisciplina">Nota:</label>
-                                    <input type="text" class="form-control" placeholder="Nota" id="nota"
-                                        name="nota">
-                                </div>
-
+                              <label for="coddisciplina">CodDisciplina:</label>
+                              <th:block th:each="disciplina : ${disciplinas}">
+                                <span th:text="${disciplina.coddisciplina}"></span>
+                              </th:block>
+                              
 
                                 <button type="submit" class="btn btn-block btn-register"><i
                                         class="fas fa-user-plus"></i>Cadastrar</button>
