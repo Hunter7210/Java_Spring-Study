@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller // Declara a classe como controller
 public class FuncionarioController {
     @Autowired
-    private FuncionarioRespository fr; // Objeit da classe Funcionario repository
+    private FuncionarioRespository fr; // Objeto da classe Funcionario repository
 
 
     //Abrir os site na pagina funcioanrios
