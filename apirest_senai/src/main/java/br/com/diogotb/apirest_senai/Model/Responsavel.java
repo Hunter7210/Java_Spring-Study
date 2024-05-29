@@ -3,23 +3,15 @@ package br.com.diogotb.apirest_senai.Model;
 import java.io.Serializable;
 
 import jakarta.annotation.Nonnull;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-/**
- * Responsael
- */
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Responsavel implements Serializable {
-
-    // Atributos
+public class Responsavel implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,4 +22,8 @@ public class Responsavel implements Serializable {
     @OneToOne(mappedBy = "responsavel")
     private Ambiente ambiente;
 
+    public void setId(Long id2) {
+        throw new UnsupportedOperationException("Unimplemented method 'setId'");
+    }
+    
 }
